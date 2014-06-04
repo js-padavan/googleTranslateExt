@@ -1,0 +1,16 @@
+{
+  "name": "googleTranslateExt",
+  "version": "0.0.0",
+  "authors": [
+    "V <vlad.dovzhenko@gmail.com>"
+  ],
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

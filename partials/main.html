@@ -1,0 +1,32 @@
+<div class="container">
+	<div class="header">
+		<label>Select language
+			<select ng-model="lang" ng-change="loadWords();" ng-init="lang = languages[0]"
+			 ng-options="item.language for item in languages" required>
+ 			</select>
+		</label>
+		<label>Select order
+			<select ng-model="order" ng-init="order='-date'" required>
+				<option value="-date">By date</option>
+				<option value="word">By alphabet</option>		
+			</select>
+		<label>
+	</div>
+	<table class="table stripped" ng-hide="words.length === 0">
+		<thead>
+			<th>word</th>
+			<th>translation</th>
+			<th></th>
+		</thead>
+		<tbody>
+			<tr ng-repeat="word in words | orderBy:order">
+				<td>{{word.word}}</td>
+				<td>{{word.translation}}</td>
+				<td><a href="" ng-click="removeWord($index)">Remove</a></td>
+			</tr>
+		</tbody>
+	</table>
+	<div ng-hide="words.length">
+		Your word list is empty. Please start adding words using green "save" button on <a ng-click="openGTranslate();" href="">google translate page</a>
+	</div>
+</div>

@@ -1,0 +1,37 @@
+{
+	"manifest_version" : 2,
+	"name": "google translate extension",
+	"version" : "0.1",
+	"description" : "This extension track all translations on google.translate and saves them to enable users repeat them later",
+	"permissions": [
+		"storage",
+		"webRequest",
+		"https://translate.google.com/"
+	],
+	"web_accessible_resources" : [
+		"/img/loading_img.gif"
+	],
+	"background" : {
+		"scripts" : [
+			"./bower_components/q/q.js",
+			"./js/bgScripts/main.js"
+		],
+		"persistent" : true	
+	},
+	"content_scripts" : [
+		{
+			"matches" : ["https://translate.google.com/*"],
+			"js" : [
+				"./bower_components/jquery/dist/jquery.min.js", 
+				"./bower_components/q/q.js",
+				"./js/contentScripts/watcher.js"
+			],
+			"css" : ["./css/common.css"]
+		}
+	],
+	"browser_action" : {
+		"default_icon" : "img/icon.png",
+		"default_popup" : "index.html"
+		
+	}
+}
